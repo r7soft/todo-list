@@ -1,0 +1,269 @@
+
+
+/* Example media query for smaller screens (e.g., smartphones) */
+@media only screen and (max-width: 600px) {
+    
+    /* CSS rules specific to smaller screens */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+    }
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+    }
+    #main {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        background-color: #dadada;
+        
+    }
+    #main #nav {
+        width: 100%;
+        /* background-color: aqua; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 10px;
+        
+    }
+    #main #nav #search_bar{
+
+        width: 90vw;
+
+    }
+    #main #nav #search_bar #searchInput{
+
+        width: 100%;
+        height: 35px;
+        border-radius: 10px;
+        border: 1px solide black;
+        outline: none;
+        padding-left: 10px;
+        padding-right: 10px;
+
+    }
+
+    #main #nav #button_container{
+        width: 90vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #main #nav #button_container button{
+        height: 35px;
+        width: 90px;
+        border-radius: 10px;
+
+    }
+
+    #main #todo_list{
+        width: 100%;
+        height: inherit;
+        /* background-color: aquamarine; */
+        overflow: scroll;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+       
+        flex-direction: column;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        gap: 10px;
+    }
+
+    #main #todo_list::-webkit-scrollbar {
+        display: none;
+    }
+
+    #main #todo_list .todo_container{
+
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        width: 90vw;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: aquamarine;
+        border-radius: 10px;
+
+        gap: 10px;
+       
+
+
+    }
+
+    #main #todo_list .todo_container .todo_details{
+
+        width: inherit;
+      
+     
+
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    #main #todo_list .todo_container .checkbox_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #main #todo_list .todo_container .checkbox_container .checkbox{
+
+        width: 15px;
+        height: 15px;
+        
+    }
+
+    #main #todo_list .todo_container .todo_details .todo_name h4{
+
+        font-size: 17px;
+        font-weight: 600;
+
+
+    }
+
+
+
+    #main #todo_list .todo_container .todo_details .todo_timedate{
+
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 5px;
+    }
+    #main #todo_list .todo_container .todo_details .todo_name .todo_timedate h6{
+
+        font-size: 12px;
+        font-weight: 600;
+        
+
+    }
+
+    #main #todo_list .todo_container .todo_details .todo_timedate .todo_date ,
+    #main #todo_list .todo_container .todo_details .todo_timedate .todo_time{
+        width: inherit;
+    }
+
+
+
+    #main #todo_list .todo_container .todo_edt_delete_btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    
+
+
+   
+
+
+
+
+
+    #main #footer{
+         
+        width: 100%;
+        /* background-color: aquamarine; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        padding-bottom: 10px;
+
+    }
+
+    #main #footer #todo_form {
+        width: 90vw ;
+        display: flex;
+        align-items: center;justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    #main #footer #todo_form #todo_input{
+        width: 100%;
+        height: 35px;
+        border-radius: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+
+
+    }
+
+    #main #footer #todo_form  #date_time{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    #main #footer #todo_form  #date_time input{
+        /* width: 50%; */
+        width: inherit;
+        height: 35px;
+        border-radius: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+
+    }
+
+    #main #footer #todo_form  #submit_btn{
+        width: 100%;
+        height: 35px;
+        border-radius: 10px;
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+/* Example media query for tablets */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    /* CSS rules specific to tablets */
+}
+
+/* Example media query for larger screens (e.g., desktops) */
+@media only screen and (min-width: 1025px) {
+    /* CSS rules specific to larger screens */
+}
