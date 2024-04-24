@@ -1,10 +1,21 @@
-const todoListElem = document.getElementById("todo_list");
-const todoFormElem = document.getElementById("todo_form");
-const todoList = [];
+const inputElem = document.getElementById("form_input");
+const btn = document.getElementById("btn");
+const list_item = document.getElementById("list_item");
+const searchInput = document.getElementById("searchInput");
+const form = document.getElementsByTagName("form")[0];
 
-const todoInputElem = document.getElementById("todo_input");
-const todoTimeElem = document.getElementById("todo_time");
-const todoDateElem = document.getElementById("todo_date");
+const allFilterButton = document.getElementById("allFilterButton");
+const completeFilterButton = document.getElementById("completeFilterButton");
+const activeFilterButton = document.getElementById("activeFilterButton");
+
+const todoList = [];
+const EDIT_BTN_TEXT = "Edit";
+const SUBMIT_BTN_TEXT = "Submit";
+let editTodoIndex;
+
+inputElem.addEventListener("change", (e) => {
+    inputElem.setAttribute("value", e.target.value);
+});
 
 const handleCheckbox = (ID) => {
     const elementIndex = todoList.findIndex((todo) => todo.ID === ID);
@@ -13,62 +24,98 @@ const handleCheckbox = (ID) => {
     renderTodoList(todoList);
 };
 
-todoFormElem.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    todoList.push({ ID: Date.now(), todo: todoInputElem.value, taskStatus: false, date: todoDateElem.value, time: todoTimeElem.value });
-
-    todoInputElem.value = "";
-    todoDateElem.value = "";
-    todoTimeElem.value = "";
-
+const deleteTodo = (ID) => {
+    const elementIndex = todoList.findIndex((todo) => todo.ID === ID);
+    todoList.splice(elementIndex, 1);
     renderTodoList(todoList);
-});
+};
+
+const editTodo = (ID) => {
+    const elementIndex = todoList.findIndex((todo) => todo.ID === ID);
+    editTodoIndex = elementIndex;
+    inputElem.value = todoList[elementIndex].todo;
+    btn.innerHTML = EDIT_BTN_TEXT;
+};
 
 const renderTodoList = (array) => {
-    todoListElem.innerHTML = "";
+    list_item.innerHTML = "";
 
-    array.forEach((task) => {
-        const clutter = `
-        <div class="todo_container">
-            <div class="checkbox_container">
-                <input class="checkbox" type="checkbox" ${task.taskStatus ? 'checked' : ''}>
-            </div>
-            <div class="todo_details">
-                <div class="todo_name">
-                    <h4>${task.todo}</h4>
-                </div>
-                <div class="todo_timedate">
-                    <div class="todo_date">
-                        <h6>Date: ${task.date}</h6>
-                    </div>
-                    <div class="todo_time">
-                        <h6>Time: ${task.time}</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="todo_edt_delete_btn">
-                <div class="edit_btn">
-                    <i class="ri-pencil-fill"></i>
-                </div>
-                <div class="delete_btn">
-                    <i class="ri-close-circle-fill"></i>
-                </div>
-            </div>
-        </div>`;
+    array.forEach((task, index) => {
+        const liElem = document.createElement("li");
+        const checkboxElem = document.createElement("input");
+        const labelElem = document.createElement("label");
+        const deleteButton = document.createElement('button');
+        const editButton = document.createElement('button');
 
-        todoListElem.innerHTML += clutter;
+        deleteButton.innerText = "Delete";
+        editButton.innerText = "Edit";
 
+        checkboxElem.type = "checkbox";
+        checkboxElem.checked = task.taskStatus;
+
+        checkboxElem.addEventListener("change", () => {
+            handleCheckbox(task.ID);
+        });
+
+        deleteButton.addEventListener("click", () => {
+            deleteTodo(task.ID);
+        });
+
+        editButton.addEventListener("click", () => {
+            editTodo(task.ID);
+        });
+
+        labelElem.textContent = task.todo;
+
+        liElem.appendChild(checkboxElem);
+        liElem.appendChild(labelElem);
+        liElem.appendChild(deleteButton);
+        liElem.appendChild(editButton);
+
+        list_item.appendChild(liElem);
     });
 
-    const checkboxElem = document.querySelectorAll(".checkbox");
+    console.log(todoList);
+};
 
-    checkboxElem.forEach((checkbox, index) => {
-        checkbox.addEventListener("change", () => {
-            handleCheckbox(array[index].ID);
-        });
-        // console.log(todoList)
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    if (btn.innerText === EDIT_BTN_TEXT) {
+        todoList[editTodoIndex].todo = inputElem.value;
+        renderTodoList(todoList);
+        btn.innerText = SUBMIT_BTN_TEXT;
+        inputElem.value = "";
+    } else {
+        todoList.push({ ID: Date.now(), todo: inputElem.value, taskStatus: false });
+        renderTodoList(todoList);
+        inputElem.value = "";
+    }
+});
+
+const searchFeature = (array) => {
+    searchInput.addEventListener("keyup", () => {
+        const searchInputValue = searchInput.value.toLowerCase();
+        const filterTodos = array.filter((elem) => elem.todo.toLowerCase().includes(searchInputValue));
+        renderTodoList(filterTodos);
     });
 };
 
-renderTodoList(todoList);
+allFilterButton.addEventListener("click", () => {
+    renderTodoList(todoList);
+    searchFeature(todoList);
+});
+
+completeFilterButton.addEventListener("click", () => {
+    const filterTodos = todoList.filter((elem) => elem.taskStatus === true);
+    renderTodoList(filterTodos);
+    searchFeature(filterTodos);
+});
+
+activeFilterButton.addEventListener("click", () => {
+    const filterTodos = todoList.filter((elem) => elem.taskStatus === false);
+    renderTodoList(filterTodos);
+    searchFeature(filterTodos);
+});
+
+searchFeature(todoList);
