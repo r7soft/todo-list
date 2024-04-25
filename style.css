@@ -325,19 +325,14 @@ body {
 
 
                 }
-
                 >#todo_input::placeholder {
                     color: #000;
                     opacity: 1;
                     /* Firefox */
                 }
-
-
-
-                >input {
+                >.date_time-input {
                     width: 100%;
-                    /* width: inherit; */
-                    flex-shrink: 1;
+                    
                     height: 50px;
                     border-radius: 30px;
                     padding-left: 10px;
@@ -347,12 +342,11 @@ body {
 
                 }
 
-                >input::placeholder {
+                >.date_time-input::placeholder {
                     color: #000;
                     opacity: 1;
                     /* Firefox */
                 }
-
 
                 >#submit_btn {
                     width: 100%;
