@@ -105,7 +105,8 @@ body {
 
 
             }
-            >#allFilterButton{
+
+            >#allFilterButton {
                 background-color: #fff;
                 color: #000;
 
@@ -145,24 +146,27 @@ body {
                 flex-direction: column;
                 gap: 14px;
 
-                >.todo-name{
+                >.todo-name {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
                     gap: 20px;
                     width: 100%;
+
                     >p {
                         width: inherit;
                         overflow-x: scroll;
                         font-size: 18px;
                         font-weight: 400;
                     }
+
                     >p::-webkit-scrollbar {
                         display: none;
-                        
-            
+
+
                     }
-                    >.checkbox{
+
+                    >.checkbox {
                         height: 16px;
                         width: 16px;
                         /* border-radius: 50%; */
@@ -286,12 +290,12 @@ body {
             justify-content: center;
             display: none;
 
-            >#close-create-todo-container{
+            >#close-create-todo-container {
 
                 position: fixed;
                 top: 20px;
                 right: 20px;
-                height: 40px;            
+                height: 40px;
                 width: 40px;
                 border-radius: 50%;
                 background-color: #1B1B1B;
@@ -299,7 +303,7 @@ body {
                 align-items: center;
                 justify-content: center;
                 color: #fff;
-                
+
             }
 
             >#todo_form {
@@ -317,41 +321,38 @@ body {
                     padding-left: 10px;
                     padding-right: 10px;
                     border: none;
-                    outline: none;  
+                    outline: none;
 
 
                 }
-                #todo_input::placeholder {
+
+                >#todo_input::placeholder {
                     color: #000;
                     opacity: 1;
                     /* Firefox */
                 }
 
-                >#date_time {
+
+
+                >input {
                     width: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    gap: 4%;
+                    /* width: inherit; */
+                    flex-shrink: 1;
+                    height: 50px;
+                    border-radius: 30px;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    border: none;
+                    outline: none;
 
-                    >input {
-                        width: 48%;
-                        /* width: inherit; */
-                        flex-shrink: 1;
-                        height: 50px;
-                        border-radius: 30px;
-                        padding-left: 10px;
-                        padding-right: 10px;
-                        border: none;
-                        outline: none;
-
-                    }
-                    input::placeholder {
-                        color: #000;
-                        opacity: 1;
-                        /* Firefox */
-                    }
                 }
+
+                >input::placeholder {
+                    color: #000;
+                    opacity: 1;
+                    /* Firefox */
+                }
+
 
                 >#submit_btn {
                     width: 100%;
