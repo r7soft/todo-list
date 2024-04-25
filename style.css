@@ -1,13 +1,374 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@media only screen and (max-width: 600px) {
 
-*{
-    box-sizing: border-box;
-    /* margin: 0;
-    padding: 0; */
-    font-family: "Poppins", sans-serif;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+    }
+
+    main {
+        height: 100%;
+        background-color: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+
+        >nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 10px;
+            /* height: 55px; */
+            width: 100%;
+            color: #fff;
+
+            >i {
+                font-size: 30px;
+                font-weight: 200;
+            }
+
+            >#search-container {
+                width: inherit;
+                background-color: #FE6902;
+
+                height: 50px;
+
+                padding: 5px 10px 5px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 30px;
+
+                >#search-input {
+                    width: inherit;
+                    background: transparent;
+                    outline: none;
+                    border: none;
+                    padding-left: 15px;
+                    color: #fff;
+                    font-size: 16px;
+                }
+
+                #search-input::placeholder {
+                    color: #fff;
+                    opacity: 1;
+                    /* Firefox */
+                }
+
+            }
+
+
+
+
+
+
+        }
+
+        >#filter-button {
+
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            gap: 10px;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            overflow-x: scroll;
+
+            >.button {
+
+                flex-shrink: 0;
+                height: 50px;
+                padding-left: 20px;
+                padding-right: 20px;
+                border-radius: 30px;
+
+                color: #fff;
+                border: none;
+
+                font-size: 16px;
+                background-color: #1B1B1B;
+
+                /* background-color: #1C2826; */
+
+
+            }
+            >#allFilterButton{
+                background-color: #fff;
+                color: #000;
+
+            }
+
+        }
+
+        >#filter-button::-webkit-scrollbar {
+            display: none;
+
+        }
+
+        >#todo-container {
+            padding: 0px 10px 40px;
+
+            height: inherit;
+            width: 100%;
+            flex-shrink: 1;
+            overflow: scroll;
+            /* background-color: #FE6902; */
+
+            >.todo {
+                color: #fff;
+                border-radius: 20px;
+                padding: 14px;
+                margin-bottom: 10px;
+                /* background-color: #1C2826; */
+                /* background-color: #565554; */
+                background-color: #1B1B1B;
+                /* background-color: #131B23; */
+
+                /* background-color: #2274A5; */
+
+                display: flex;
+                align-items: start;
+                /* justify-content: center; */
+                flex-direction: column;
+                gap: 14px;
+
+                >.todo-name{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 20px;
+                    width: 100%;
+                    >p {
+                        width: inherit;
+                        overflow-x: scroll;
+                        font-size: 18px;
+                        font-weight: 400;
+                    }
+                    >p::-webkit-scrollbar {
+                        display: none;
+                        
+            
+                    }
+                    >.checkbox{
+                        height: 16px;
+                        width: 16px;
+                        /* border-radius: 50%; */
+                    }
+
+                }
+
+                >.timeDate-container {
+                    display: flex;
+                    gap: 20px;
+
+                    >.time-container {
+
+                        height: 30px;
+                        /* width: 90px; */
+                        padding: 0 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: #FE6902;
+                        border-radius: 20px;
+                    }
+
+                    >.date-container {
+
+                        height: 30px;
+                        /* width: 90px; */
+                        padding: 0 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: #FE6902;
+                        border-radius: 20px;
+                    }
+                }
+
+                >.bottom {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    >.submit-date-container {
+
+                        p {
+                            font-weight: 200;
+                            font-size: 12px;
+                        }
+                    }
+
+                    >.button-container {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 14px;
+                    }
+
+                }
+
+
+
+
+
+
+
+
+
+
+            }
+
+        }
+
+        >#todo-container::-webkit-scrollbar {
+            display: none;
+
+        }
+
+
+
+        >#add-todo-button {
+
+            height: 70px;
+            width: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #FE6902;
+            position: fixed;
+            /* transform: translate(-50% ,-50% ); */
+            transform: translateX(-50%);
+            bottom: 10px;
+            left: 50%;
+            border: 7px solid #1B1B1B;
+
+
+
+            >p {
+                font-size: 30px;
+                font-weight: 300;
+                color: #fff;
+            }
+        }
+
+        >#create-todo-container {
+
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            /* border-radius: 10px; */
+            border: 1px solid rgba(255, 255, 255, 0.18);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            display: none;
+
+            >#close-create-todo-container{
+
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                height: 40px;            
+                width: 40px;
+                border-radius: 50%;
+                background-color: #1B1B1B;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                
+            }
+
+            >#todo_form {
+                width: 80vw;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                gap: 20px;
+
+                >#todo_input {
+                    width: 100%;
+                    height: 50px;
+                    border-radius: 10px;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    border: none;
+                    outline: none;  
+
+
+                }
+                #todo_input::placeholder {
+                    color: #000;
+                    opacity: 1;
+                    /* Firefox */
+                }
+
+                >#date_time {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 10px;
+
+                    >input {
+                        /* width: 50%; */
+                        width: inherit;
+                        height: 50px;
+                        border-radius: 10px;
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        border: none;
+                        outline: none;
+
+                    }
+                    input::placeholder {
+                        color: #000;
+                        opacity: 1;
+                        /* Firefox */
+                    }
+                }
+
+                >#submit_btn {
+                    width: 100%;
+                    height: 50px;
+                    border-radius: 10px;
+                    background-color: #FE6902;
+                    border: none;
+                    color: #fff;
+                    font-size: 16px;
+
+                }
+
+            }
+
+
+        }
+
+
+    }
+
+
 }
-html,body{
-    height: 100%;
-    width: 100%;
-}
- 
